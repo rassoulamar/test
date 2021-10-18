@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste des étudient{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="m4">
+            <h1><a href="{{ path('accueil') }}"> <i class="fas fa-home"></i> Retour à l'accueil</a></h1>
+        </div>
+        <h1>La liste des étudient</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Numéro étudient</th>
+                <th>département</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.firstName }}</td>
+                    <td>{{ student.lastName }}</td>
+                    <td>{{ student.numEtud }}</td>
+                    <th>{{ student.departement.name }}</th>
+                    <td>
+                        <a class="btn btn-primary m-1" href="{{ path('student_crud_show', {'id': student.id}) }}">Afficher</a>
+                        <a class="btn btn-warning m-1" href="{{ path('student_crud_edit', {'id': student.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Pas de résultat trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-success m-1" href="{{ path('student_crud_new') }}">Créer un nouveau étudient</a>
+    </div>
+
+{% endblock %}

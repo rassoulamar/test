@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche étudient{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Fiche étudient</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ student.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ student.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Pénom</th>
+                <td>{{ student.lastName }}</td>
+            </tr>
+            <tr>
+                <th>N° étudient</th>
+                <td>{{ student.numEtud }}</td>
+            </tr>
+            <tr>
+                <th>N° étudient</th>
+                <td>{{ student.departement.name }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-secondary m-1" href="{{ path('student_crud_index') }}">Revenir à la liste</a>
+
+        <a  class="btn btn-warning m-1" href="{{ path('student_crud_edit', {'id': student.id}) }}">Modifier</a>
+
+        {{ include('student_crud/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

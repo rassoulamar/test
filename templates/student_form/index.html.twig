@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Formulaire!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="m4">
+            <h1><a href="{{ path('accueil') }}"> <i class="fas fa-home"></i> Retour à l'accueil</a></h1>
+        </div>
+        <div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {{ form_start(form) }}
+            {{ form_row(form.firstName,{label:"Nom",attr:{'placeholder': 'Entrez le nom de l\'étudient'}}) }}
+            {{ form_row(form.lastName,{label:"Prénom",attr:{'placeholder': 'Entrez le prénom de l\'étudient'}}) }}
+            {{ form_row(form.numEtud,{label:"N° d'étudient",attr:{'placeholder': 'Entrez le numéro de l\'étudient'}}) }}
+            {{ form_row(form.departement,{label:"Département",attr:{'placeholder': 'Entrez le département de l\'étudient'}}) }}
+
+            <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+            {{ form_row(form.firstName,{label:"Nom",attr:{'placeholder': 'Entrez le nom de l\'étudient'}}) }}
+            {{ form_row(form.lastName,{label:"Prénom",attr:{'placeholder': 'Entrez le prénom de l\'étudient'}}) }}
+            {{ form_row(form.numEtud,{label:"N° d'étudient",attr:{'placeholder': 'Entrez le numéro de l\'étudient'}}) }}
+            {{ form_row(form.departement,{label:"Département",attr:{'placeholder': 'Entrez le département de l\'étudient'}}) }}
+    <button class="btn btn-primary m-1">{{ button_label|default('Enregister') }}</button>
+{{ form_end(form) }}
